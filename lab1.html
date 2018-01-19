@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>A00987471 - Lab 5 Ex</title>
+  
+    <style>
+        
+        #mainbox{
+            margin:auto;
+	width: 415px;
+	height: auto;
+            background-color: #6890f0;
+            border: 2px solid #445E9C;
+            
+            border-radius: 15px;
+            
+        }
+        
+        #topleft{
+            width: 130px;
+            margin: 10px;
+            position: relative;
+              background-color: rgb(153, 180, 245);
+            border: 5px solid #445E9C;
+             text-align: center;
+            margin-left: auto ;
+            margin-right: auto ;
+             border-radius: 10px;
+             box-shadow: 0px 0px 15px #363333;
+        }
+        
+        #topright{
+            position:relative;
+            width: 80px;
+            margin: 10px;
+            background-color: rgb(153, 180, 245);
+            text-align: center;
+            margin-left: auto ;
+            margin-right: auto ;
+             border-radius: 10px;
+        }
+        
+       
+        
+        #image{
+            width: 100px;
+            margin: 10px;
+        }
+        
+        #info{
+            
+              width: 75%;
+            height: auto;
+            margin:auto;
+            margin-bottom: 10px;
+            
+            background-color: #ffffff;
+            border-radius: 5px;
+             box-shadow: 0px 0px 15px #363333;
+        }
+        
+        #container img{
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+}
+        
+        
+        .col {
+  float: right;
+  width: 20px;
+  height: 20px;
+  margin: 5px;
+  border: 1px solid rgba(0, 0, 0, .2);
+            border-radius: 5px;
+}
+    </style>
+    
+    </head>
+    <body>
+        
+        <div id="mainbox">
+            
+        <div id="topleft">
+           <p>Krabby the River Crab</p>
+ </div>
+        
+        <div id="topright">
+            <p>Generation 1</p>
+            </div>
+            
+            <div id="container"><img src="Crabby.png" id="image"></div>
+            
+            
+              <div><p id="info"></p></div>
+        </div>
+        
+      
+        
+        <script>
+            
+            
+            //arrays
+            var colors = ["Red","Blue","Teal","Green"];
+            
+	       var months = ["January","February","March","April","May","June","July","August","September","October","November","December"];
+            
+            //creation and syntax
+            
+        var image = {name:"Krabby", type:"Water",created: new Date(), weight:50.4321,
+	message : function(){
+		
+		return 'Hello my  name is ' + this.name.toUpperCase() + 
+        ' and ' +this.namelen().toLowerCase() + '<br/>'
+        +
+		'My favourite colors in alphabetic order: ' + colors.sort() +
+		this.colorblocks() + '<br/><br/>' +
+         'I was created on ' + this.dateformatMDY() + '<br/>' +
+		'My rounded weight is ' +  Math.round(this.weight) + '<br/>' +
+		'My weight with two decimals is ' + this.weight.toFixed(2) + '<br/>';
+	},
+                     
+                     colorblocks : function(){
+		var list = '';
+		for (i in colors){
+			list += '<div class="col" style="background:' + colors[i] + '"></div>';
+		}
+		return list;
+	},
+        
+        dateformatMDY: function(){
+	
+		return months[this.created.getMonth()] + ' ' + this.created.getDate() + ', ' +
+		this.created.getFullYear();
+	},
+                     //string methods
+        namelen : function (){
+                     return 'My name has ' + this.name.length + ' characters <br>';
+                    },
+                    
+                    
+                    acrostic : function(){
+		var cad = '';
+		cad = '<br/>' +
+			  '<b>' + this.name.substring(0,1).toUpperCase() + '</b> is for Kingler<br/>' +
+			  '<b>' + this.name.substring(1,2).toUpperCase() + '</b> is for Rumble<br/>' + 
+			  '<b>' + this.name.substring(2,3).toUpperCase() + '</b> is for AuroraBeam<br/>' +
+            '<b>' + this.name.substring(3,4).toUpperCase() + '</b> is for bubble<br/>' + 
+            '<b>' + this.name.substring(4,5).toUpperCase() + '</b> is for BubbleBeam<br/>' + 
+            '<b>' + this.name.substring(5,6).toUpperCase() + '</b> is for Yes!<br/>'
+        
+        ;
+		return cad;
+	}
+    };
+            
+            
+            
+document.getElementById('info').innerHTML = image.message() + '<br/>' + image.acrostic();
+        </script>
+        
+    </body>
+    
+</html>
